@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  enter rate :  <input type="text" id="t1">
+  <button onclick="add_data()">submit</button>
+  <button onclick="asc_data()">ascending</button>
+  <button onclick="des_data()">descending</button><br><br>
+  eneter a rate: <input type="text" id="t2">
+  <button onclick="search_data()">search</button>
+  <button onclick="max_data()">maxvalue</button>
+  <button onclick="min_data()">minvalue</button><br><br>
+  <button onclick="dup_data()">duplicate</button>
+<script>
+    arr=[];
+    function add_data()
+    {
+        arr.push(parseFloat(document.getElementById('t1').value));
+        console.log(arr);
+    }
+    function asc_data()
+    {
+       arr = arr.sort();
+       console.log(arr);
+
+    }
+    function des_data()
+    {
+       arr = arr.reverse();
+       console.log(arr);
+
+    }
+    function search_data()
+    {
+        let f = 0;
+        let h = document.getElementById('t2').value;
+        for(let i=0 ;i < arr.length ;i++)
+        {
+            if(arr[i]==h)
+            {
+                console.log("element", h ,"at index" ,i);
+                f++;
+            }
+        }
+        if (f==0)
+        {
+            console.log(h,"is not present");
+        }
+        
+    }
+    function max_data()
+    {
+      let m = Math.max(...arr);
+      console.log("max value=",m);
+    }
+    function min_data()
+    {
+      let m = Math.min(...arr);
+      console.log("min value=",m);
+    }
+    function dup_data()
+    {
+    //let //c = 0;
+      for(let i=0;i<arr.length;i++)
+      {
+        for(let j=0;j<arr.length;j++)
+        {
+            if (arr[i]==arr[j])
+                console.log("duplicate of",arr[i],"at",j);
+            }
+        }
+      }
+</script>
+</body>
+</html> 

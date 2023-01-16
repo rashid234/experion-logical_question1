@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" id="date1" name="hi">
+    <button onclick="days()">days</button>
+    <button onclick="hours()">hours</button>
+    <button onclick="week()">week</button>
+    <button onclick="months()">month</button>
+    <button onclick="year()">year</button>
+    <button onclick="checkLeapYear()">leap year</button>
+
+    <script>
+        let dob = new Date(document.getElementById('date1').value);
+        var diffDays;
+        var hour;
+        let date = new Date();
+        function days() {
+
+            // time difference
+            var timeDiff = Math.abs(date.getTime() - dob.getTime());
+            // let dated = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+            diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            console.log(diffDays);
+        }
+        function hours() {
+            hour = diffDays * 24;
+            console.log(hour);
+        }
+        function week() {
+            console.log(diffDays / 7);
+        }
+        function months() {
+            console.log(diffDays / 30);
+        }
+        function year() {
+            console.log(parseInt(date.getFullYear()) - parseInt(dob.getFullYear()));
+        }
+        function checkLeapYear() {
+
+            let year = dob.getFullYear();
+            //three conditions to find out the leap year
+            if ((0 == year % 4) && (0 != year % 100) || (0 == year % 400)) {
+                console.log(year + ' is a leap year');
+            } else {
+                console.log(year + ' is not a leap year');
+            }
+        }
+    </script>
+
+    <!-- <script>
+    var dateFirst = new Date();
+    var dateSecond = new Date("11/28/2017");
+    console.log(typeof dateFirst)
+
+    // time difference
+    var timeDiff = Math.abs(dateSecond.getTime() - dateFirst.getTime());
+
+    // days difference
+    var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+    // difference
+    alert(diffDays);
+ </script> -->
+</body>
+
+</html>

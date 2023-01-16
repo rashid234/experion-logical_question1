@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   Enter flightrate: <input type="text" id="t1"><br><br>
+   Enter time: <input type="time" id="t2" ><br><br>
+   <button onclick="ratecalculate()">submit</button>
+   <script>
+    function ratecalculate ()
+    {
+      let g = parseInt(document.getElementById('t2').value) ;
+      let h = document.getElementById('t1').value ;
+      console.log(g)
+      if (6 < g && g < 9)
+      {
+        h = h* 1.10 ;
+        console.log('new rate',h);
+      }
+     else if ( 9 < g && g < 17)
+     {
+      h = h* 1.20 ;
+        console.log('new rate',h);
+     }
+     else if (5 < g && g < 23)
+     {
+      h = h* 1.07 ;
+        console.log('new rate',h);
+     }
+     else if (g==23||g==0||(g>=1&&g<=6))
+     {
+      h = h* 1.05 ;
+        console.log('new rate',h);
+     }
+     else
+     {
+      console.log('invalid entry');
+     }
+    }
+   </script>
+</body>
+</html>
